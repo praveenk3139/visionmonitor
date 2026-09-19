@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -42,11 +44,13 @@
   background: rgba(148, 163, 184, 0.7);
 }
 
-.dark ::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb,
+:is(.dark) ::-webkit-scrollbar-thumb {
   background: rgba(71, 85, 105, 0.5);
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover,
+:is(.dark) ::-webkit-scrollbar-thumb:hover {
   background: rgba(71, 85, 105, 0.8);
 }
 
@@ -55,7 +59,8 @@
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
 }
 
-.dark .card-shadow {
+.dark .card-shadow,
+:is(.dark) .card-shadow {
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -67,6 +72,7 @@
   font-family: 'Inter', sans-serif !important;
 }
 
-.dark .leaflet-tile {
+.dark .leaflet-tile,
+:is(.dark) .leaflet-tile {
   filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.75);
 }

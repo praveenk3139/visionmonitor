@@ -23,13 +23,13 @@ import {
 } from 'lucide-react';
 
 export const MainApp: React.FC = () => {
-  const { currentTab } = useApp();
+  const { currentTab, theme } = useApp();
 
   const [isNotifModalOpen, setIsNotifModalOpen] = useState(false);
   const [isDemoTourOpen, setIsDemoTourOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col transition-colors duration-200">
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col transition-colors duration-200`}>
       
       {/* Top Navigation */}
       <Navbar

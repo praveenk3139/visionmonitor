@@ -186,14 +186,19 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [mapFocusLocation, setMapFocusLocation] = useState<{ lat: number; lng: number; zoom?: number } | null>(null);
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(null);
 
-  // Sync theme to root classList
+  // Sync theme to root classList and body
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
     const root = document.documentElement;
+    const body = document.body;
     if (theme === 'dark') {
       root.classList.add('dark');
+      body.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
     } else {
       root.classList.remove('dark');
+      body.classList.remove('dark');
+      root.setAttribute('data-theme', 'light');
     }
   }, [theme]);
 
